@@ -60,6 +60,9 @@ a:hover{color:#A3470F}
 button.lk{background:none;border:0;margin:0;width:100%;font:inherit;color:#2E2A22;cursor:pointer;text-align:inherit}
 .grp{display:flex;flex-direction:column;align-items:center;padding:5px 10px}
 .grp .nm{font-variant:small-caps;letter-spacing:.07em;font-size:23px;line-height:1.2}
+.grpa{color:#2E2A22;text-decoration:underline;text-decoration-color:transparent;text-decoration-thickness:1px;text-underline-offset:5px;transition:color .3s,text-decoration-color .3s}
+.grpa:hover{color:#A3470F;text-decoration-color:#E0812B}
+.grpa:focus-visible{outline:2px solid #A3470F;outline-offset:3px}
 .grp .sub{font-style:italic;font-size:15.5px;line-height:1.35;color:#5E5545;text-decoration:none;padding:3px 6px}
 .grp .sub:hover{color:#A3470F}
 .grp .sub:focus-visible{outline:2px solid #A3470F;outline-offset:2px}
@@ -112,7 +115,7 @@ button.lk{background:none;border:0;margin:0;width:100%;font:inherit;color:#2E2A2
 <nav aria-label="Elsewhere" style="margin-top: 28px">
 <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px">
 <li><a class="lk" href="https://blog.ijfen.com"><span class="nm">Blog</span><span class="ds">Essays &amp; Book Reviews</span></a></li>
-<li class="grp"><span class="nm">Ancient Greek</span><a class="sub" href="#">Ancient Greek Skill Tree</a><a class="sub" href="https://greekdrills.ijfen.com">Grammar Drills</a></li>
+<li class="grp"><a class="nm grpa" href="https://ijfen.com/greek">Ancient Greek</a><a class="sub" href="https://greekskill.ijfen.com">Ancient Greek Skill Tree</a><a class="sub" href="https://greekdrills.ijfen.com">Grammar Drills</a></li>
 <li><a class="lk" href="https://x.com/ijfen"><span class="nm">Twitter</span><span class="ds">@ijfen</span></a></li>
 <li><button class="lk" type="button" data-copy-email=""><span class="nm">Contact</span><span class="ds" aria-live="polite" data-copy-status="">Copy Email</span></button></li>
 </ul>
