@@ -84,6 +84,10 @@ button.lk{background:none;border:0;margin:0;width:100%;font:inherit;color:#2E2A2
 @media (max-width:719px){.card .tx{font-size:16px !important}.card .hd{font-size:21px !important}.card .ft{text-align:left;margin-left:-8px}}
 @media (prefers-reduced-motion:reduce){.card{animation:none}}
 </style>
+<style>
+/* phone: no flowers, no animation */
+@media (max-width:719px){[data-layer]{display:none !important}.card{animation:none !important;opacity:1 !important;transform:none !important}}
+</style>
 </head>
 <body>
 <div data-poppy-root="" class="garden block" style="position: relative; isolation: isolate; min-height: 100vh; box-sizing: border-box; overflow: hidden; background: #EFE6CF; display: flex; align-items: center; justify-content: flex-start; padding: 80px 24px 80px max(24px, calc(33.333vw - 210px))">
@@ -1001,7 +1005,17 @@ button.lk{background:none;border:0;margin:0;width:100%;font:inherit;color:#2E2A2
   }
   function init() {
     setupCopy();
-    try { garden.startGarden(); } catch (err) { if (window.console) console.warn('poppy garden', err); }
+    var mq = window.matchMedia ? window.matchMedia('(max-width:719px)') : null;
+    var started = false;
+    var start = function () {
+      if (started || (mq && mq.matches)) return;
+      started = true;
+      try { garden.startGarden(); } catch (err) { if (window.console) console.warn('poppy garden', err); }
+    };
+    start();
+    if (mq && !started) {
+      if (mq.addEventListener) mq.addEventListener('change', start); else if (mq.addListener) mq.addListener(start);
+    }
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
